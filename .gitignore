@@ -12,16 +12,6 @@ TAGS
 # Build and test process
 .coverage
 
-*.pyc
 /bazel-*
-*.crt
-*.key
-*.pcap
-*-rsa
-*.pub
-*.PEM
-*.pw
 .vscode
-*.bak
 .ijwb
-jmeter.log
