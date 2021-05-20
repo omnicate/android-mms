@@ -144,7 +144,7 @@ public class TimeImpl implements Time {
         // Handle Timecount-val without metric
         try {
           return parseFloat(clockValue, 0, true) * 1000;
-        } catch (NumberFormatException _) {
+        } catch (NumberFormatException nfe) {
           // Ignore
         }
 
@@ -180,7 +180,7 @@ public class TimeImpl implements Time {
 
       }
       return result;
-    } catch (NumberFormatException e) {
+    } catch (NumberFormatException nfe) {
       throw new IllegalArgumentException();
     }
   }

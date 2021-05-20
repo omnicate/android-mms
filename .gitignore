@@ -1,0 +1,27 @@
+*~
+.#*
+
+# IDE poo
+TAGS
+.settings
+.classpath
+.project
+.idea/
+*.iml
+
+# Build and test process
+.coverage
+
+*.pyc
+/bazel-*
+*.crt
+*.key
+*.pcap
+*-rsa
+*.pub
+*.PEM
+*.pw
+.vscode
+*.bak
+.ijwb
+jmeter.log

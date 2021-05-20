@@ -77,7 +77,7 @@ public class SmilRegionElementImpl extends SmilElementImpl implements SMILRegion
   public int getLeft() {
     try {
       return parseRegionLength(getAttribute(LEFT_ATTRIBUTE_NAME), true);
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Left attribute is not set or incorrect.");
       }
@@ -87,7 +87,7 @@ public class SmilRegionElementImpl extends SmilElementImpl implements SMILRegion
       int right = parseRegionLength(getAttribute(RIGHT_ATTRIBUTE_NAME), true);
       int width = parseRegionLength(getAttribute(WIDTH_ATTRIBUTE_NAME), true);
       return bbw - right - width;
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Right or width attribute is not set or incorrect.");
       }
@@ -98,7 +98,7 @@ public class SmilRegionElementImpl extends SmilElementImpl implements SMILRegion
   public int getTop() {
     try {
       return parseRegionLength(getAttribute(TOP_ATTRIBUTE_NAME), false);
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Top attribute is not set or incorrect.");
       }
@@ -108,7 +108,7 @@ public class SmilRegionElementImpl extends SmilElementImpl implements SMILRegion
       int bottom = parseRegionLength(getAttribute(BOTTOM_ATTRIBUTE_NAME), false);
       int height = parseRegionLength(getAttribute(HEIGHT_ATTRIBUTE_NAME), false);
       return bbh - bottom - height;
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Bottom or height attribute is not set or incorrect.");
       }
@@ -119,7 +119,7 @@ public class SmilRegionElementImpl extends SmilElementImpl implements SMILRegion
   public int getZIndex() {
     try {
       return Integer.parseInt(this.getAttribute(Z_INDEX_ATTRIBUTE_NAME));
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       return 0;
     }
   }
@@ -157,7 +157,7 @@ public class SmilRegionElementImpl extends SmilElementImpl implements SMILRegion
     try {
       final int height = parseRegionLength(getAttribute(HEIGHT_ATTRIBUTE_NAME), false);
       return height == 0 ? ((SMILDocument) getOwnerDocument()).getLayout().getRootLayout().getHeight() : height;
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Height attribute is not set or incorrect.");
       }
@@ -165,14 +165,14 @@ public class SmilRegionElementImpl extends SmilElementImpl implements SMILRegion
     int bbh = ((SMILDocument) getOwnerDocument()).getLayout().getRootLayout().getHeight();
     try {
       bbh -= parseRegionLength(getAttribute(TOP_ATTRIBUTE_NAME), false);
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Top attribute is not set or incorrect.");
       }
     }
     try {
       bbh -= parseRegionLength(getAttribute(BOTTOM_ATTRIBUTE_NAME), false);
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Bottom attribute is not set or incorrect.");
       }
@@ -188,7 +188,7 @@ public class SmilRegionElementImpl extends SmilElementImpl implements SMILRegion
     try {
       final int width = parseRegionLength(getAttribute(WIDTH_ATTRIBUTE_NAME), true);
       return width == 0 ? ((SMILDocument) getOwnerDocument()).getLayout().getRootLayout().getWidth() : width;
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Width attribute is not set or incorrect.");
       }
@@ -196,14 +196,14 @@ public class SmilRegionElementImpl extends SmilElementImpl implements SMILRegion
     int bbw = ((SMILDocument) getOwnerDocument()).getLayout().getRootLayout().getWidth();
     try {
       bbw -= parseRegionLength(getAttribute(LEFT_ATTRIBUTE_NAME), true);
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Left attribute is not set or incorrect.");
       }
     }
     try {
       bbw -= parseRegionLength(getAttribute(RIGHT_ATTRIBUTE_NAME), true);
-    } catch (NumberFormatException _) {
+    } catch (NumberFormatException nfe) {
       if (LOCAL_LOGV) {
         logger.info("Right attribute is not set or incorrect.");
       }
