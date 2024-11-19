@@ -32,6 +32,15 @@ public class SmilXmlParser {
 
   public SmilXmlParser() throws SAXException {
     mXmlReader = XMLReaderFactory.createXMLReader();
+
+    // Disallow external DTD (Document Type Definition)
+    mXmlReader.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+
+    // This may not be strictly required as DTDs shouldn't be allowed at all, per previous line.
+    mXmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+    mXmlReader.setFeature("http://xml.org/sax/features/external-general-entities", false);
+    mXmlReader.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+
     mContentHandler = new SmilContentHandler();
     mXmlReader.setContentHandler(mContentHandler);
   }
